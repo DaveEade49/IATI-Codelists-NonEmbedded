@@ -99,5 +99,16 @@
                 <narrative xml:lang="fr">La portée de l'activité concerne un seul endroit (p. ex. ville, village, ferme)</narrative>
             </description>
         </codelist-item>
+        <codelist-item>
+            <code>9</code>
+            <name>
+                <narrative>Nik's location</narrative>
+                <narrative xml:lang="fr">Un seul emplacement</narrative>
+            </name>
+            <description>
+                <narrative>The activity scope covers one single location (e.g. town, village, farm)</narrative>
+                <narrative xml:lang="fr">La portée de l'activité concerne un seul endroit (p. ex. ville, village, ferme)</narrative>
+            </description>
+        </codelist-item>
     </codelist-items>
 </codelist>
