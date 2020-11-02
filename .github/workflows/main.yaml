@@ -40,7 +40,7 @@ jobs:
         git config user.name github-actions
         git config user.email github-actions@github.com
         git checkout codelist-schema-update-test || git checkout -b codelist-schema-update-test
-        git add IATI-Rulesets/lib/schemata/non-embedded-codelist/
+        git add lib/schemata/non-embedded-codelist/
         git commit -m 'Automated update of non-embedded-codelist from IATI-codelists-nonembedded'
 
 
