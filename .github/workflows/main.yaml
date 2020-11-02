@@ -42,5 +42,6 @@ jobs:
         git checkout codelist-schema-update-test || git checkout -b codelist-schema-update-test
         git add lib/schemata/non-embedded-codelist/
         git commit -m 'Automated update of non-embedded-codelist from IATI-codelists-nonembedded'
+        git push
 
 
