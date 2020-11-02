@@ -34,8 +34,8 @@ jobs:
       run: cp -R IATI-Codelists-Nonembedded/xml/ IATI-Rulesets/lib/schemata/non-embedded-codelist/ 
 
     - name: Make a branch, commit, and push changes
-    - uses: actions/checkout@v2
-    - run: |
+      uses: actions/checkout@v2
+      run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
         cd IATI-Rulesets
