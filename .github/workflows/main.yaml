@@ -29,6 +29,8 @@ jobs:
       with:
         repository: IATI/IATI-Rulesets
         path: IATI-Rulesets
+        token: ${{ secrets.GH_ACTIONS_PAT }}
+        
 
     - name: Copy files, make commit
       run: |
