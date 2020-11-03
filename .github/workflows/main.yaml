@@ -29,13 +29,12 @@ jobs:
       with:
         repository: IATI/IATI-Rulesets
         path: IATI-Rulesets
-        
+
     - name: Copy files, make commit
       run: |
         cp -R ../IATI-Codelists-Nonembedded/xml/ ./lib/schemata/non-embedded-codelist/ 
-        cd IATI-Rulesets
         git config user.name github-actions
-        git config user.email github-actions@github.com
+        git config user.email niko@devinit.org
         git checkout $NEW_BRANCH || git checkout -b $NEW_BRANCH
         git add lib/schemata/non-embedded-codelist/
         git commit -m 'Automated update of non-embedded-codelist from IATI-codelists-nonembedded'
