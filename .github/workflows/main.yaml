@@ -1,19 +1,19 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Update IATI-Rulesets
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# Controls when the action will run. Triggers the workflow on push 
+# events but only for the auto-update-Ruleset branch
 on:
   push:
     branches: [ auto-update-Ruleset ]
-  pull_request:
-    branches: [ auto-update-Ruleset ]
 
+env:
+  NEW_BRANCH: codelist-schema-update-test
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  # This workflow contains a single job called "updateRuleset"
+  updateRuleset:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,18 +25,21 @@ jobs:
         path: IATI-Codelists-Nonembedded
 
     - name: Checkout rulesets repo
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
       with:
         repository: IATI/IATI-Rulesets
         path: IATI-Rulesets
-    - run: |
-        cp -R IATI-Codelists-Nonembedded/xml/ IATI-Rulesets/lib/schemata/non-embedded-codelist/ 
+        
+    - name: Copy files, make commit
+      run: |
+        cp -R ../IATI-Codelists-Nonembedded/xml/ ./lib/schemata/non-embedded-codelist/ 
         cd IATI-Rulesets
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git checkout codelist-schema-update-test || git checkout -b codelist-schema-update-test
+        git checkout $NEW_BRANCH || git checkout -b $NEW_BRANCH
         git add lib/schemata/non-embedded-codelist/
         git commit -m 'Automated update of non-embedded-codelist from IATI-codelists-nonembedded'
-        git push https://github.com/IATI/IATI-Rulesets.git codelist-schema-update-test
+        git push https://github.com/IATI/IATI-Rulesets.git $NEW_BRANCH
+      working-directory: ./IATI-Rulesets
 
 
